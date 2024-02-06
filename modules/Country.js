@@ -18,7 +18,6 @@ class Country {
 
   checkAnswer(stringAnswer) {
     const finalAnswer = stringAnswer.toLowerCase();
-    console.log(finalAnswer);
     return this.correctAnswers.has(finalAnswer);
   }
 

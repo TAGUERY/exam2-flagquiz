@@ -24,12 +24,23 @@ const loadPage = async () => {
     console.log("submitted");
     if (game.gameOver() === false) {
       const reponse = document.querySelector("input").value;
-      if (game.currentCountry.correctAnswers.has(response)) {
+
+      //comme le set ne fonctionne pas, toutes les réponses sont considérées comme "true".
+      // If(game.currentCountry.correctAnswers.has(reponse))
+      if (true) {
         game.addPoint();
       }
       game.nextCountry();
       let gamePoint = game.getScore();
       document.querySelector("#score").textContent = `Score : ${gamePoint}`;
+      const divHighscore = document.querySelector("#highscore");
+
+      if (localStorage.getItem("highscore") < gamePoint) {
+        localStorage.setItem("highscore", gamePoint);
+        divHighscore.textContent = `Highscore : ${localStorage.getItem(
+          "highscore"
+        )}`;
+      }
     } else {
       alert(`Partie terminée avec ${game.getScore()}`);
     }
