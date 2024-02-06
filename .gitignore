@@ -2,3 +2,6 @@ dist
 .parcel-cache
 package-lock.json
 node_modules
+
+# Local Netlify folder
+.netlify
